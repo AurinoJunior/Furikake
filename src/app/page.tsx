@@ -1,9 +1,9 @@
+import { Search } from "lucide-react";
+import Link from "next/link";
 import { BottomNavigation } from "@/components/layout/BottomNavigation";
 import { CategoryRail } from "@/components/recipe/CategoryRail";
 import { FeaturedRecipeCard } from "@/components/recipe/FeaturedRecipeCard";
 import { getAllRecipes, getCategories, getFeaturedRecipe } from "@/lib/recipes";
-import { Search } from "lucide-react";
-import Link from "next/link";
 
 export default function HomePage() {
 	const featured = getFeaturedRecipe();
@@ -15,8 +15,12 @@ export default function HomePage() {
 			{/* Header */}
 			<header className="flex items-center justify-between px-6 pt-8 pb-2">
 				<div>
-					<h1 className="font-heading font-extrabold text-2xl text-foreground">Furikake</h1>
-					<p className="text-sm text-muted-foreground">O que vamos cozinhar hoje?</p>
+					<h1 className="font-heading font-extrabold text-2xl text-foreground">
+						Furikake
+					</h1>
+					<p className="text-sm text-muted-foreground">
+						O que vamos cozinhar hoje?
+					</p>
 				</div>
 				<Link
 					href="/search"
