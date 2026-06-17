@@ -16,7 +16,7 @@ export function BottomNavigation() {
 	return (
 		<div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
 			<nav
-				className="flex items-center justify-between px-1 py-1 rounded-[45px] backdrop-blur-sm"
+				className="flex items-center justify-between px-1 py-1 rounded-[45px] backdrop-blur-sm border"
 				style={{ width: 257, background: "rgba(255,255,255,0.7)" }}
 			>
 				{items.map(({ href, icon: Icon, label }) => {
