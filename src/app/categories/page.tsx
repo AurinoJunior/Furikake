@@ -26,7 +26,7 @@ export default function CategoriesPage() {
 				{categories.map((cat) => (
 					<li key={cat.slug}>
 						<Link
-							href={`/categories/${cat.slug}`}
+							href={`/search?q=${encodeURIComponent(cat.slug)}`}
 							className="flex items-center gap-4 p-4 rounded-2xl bg-secondary hover:bg-border/60 transition-colors group"
 						>
 							<span className="text-3xl">{categoryEmoji[cat.slug] ?? "🍽️"}</span>

@@ -1,14 +1,15 @@
 import { Clock, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { FavoriteButton } from "@/components/recipe/FavoriteButton";
 import type { Recipe } from "@/types/recipe";
 
-interface FeaturedRecipeCardProps {
+interface RecommendationRecipeCardProps {
 	recipe: Recipe;
 }
 
-export function FeaturedRecipeCard({ recipe }: FeaturedRecipeCardProps) {
+export function RecommendationRecipeCard({
+	recipe,
+}: RecommendationRecipeCardProps) {
 	return (
 		<Link href={`/recipes/${recipe.slug}`} className="block group">
 			<div className="relative w-full h-52 rounded-2xl overflow-hidden">
@@ -21,7 +22,7 @@ export function FeaturedRecipeCard({ recipe }: FeaturedRecipeCardProps) {
 					priority
 					unoptimized
 				/>
-				<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+				<div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
 				<div className="absolute bottom-0 left-0 right-0 p-5">
 					<p className="text-white text-sm font-bold mb-0.5">

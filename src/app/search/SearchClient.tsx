@@ -1,9 +1,10 @@
 "use client";
 
+import { Search, X } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useDeferredValue, useMemo, useState } from "react";
 import { SearchResultCard } from "@/components/recipe/SearchResultCard";
 import type { Recipe } from "@/types/recipe";
-import { Search, X } from "lucide-react";
-import { useDeferredValue, useMemo, useState } from "react";
 
 interface SearchClientProps {
 	recipes: Recipe[];
@@ -21,14 +22,20 @@ function filterRecipes(recipes: Recipe[], query: string): Recipe[] {
 }
 
 export function SearchClient({ recipes }: SearchClientProps) {
-	const [query, setQuery] = useState("");
+	const searchParams = useSearchParams();
+	const [query, setQuery] = useState(() => searchParams.get("q") ?? "");
 	const deferred = useDeferredValue(query);
-	const results = useMemo(() => filterRecipes(recipes, deferred), [recipes, deferred]);
+	const results = useMemo(
+		() => filterRecipes(recipes, deferred),
+		[recipes, deferred],
+	);
 
 	return (
 		<>
 			<div className="px-6 pt-8 pb-4">
-				<h1 className="font-heading font-bold text-2xl text-foreground mb-4">Buscar</h1>
+				<h1 className="font-heading font-bold text-2xl text-foreground mb-4">
+					Buscar
+				</h1>
 
 				<div className="relative flex items-center">
 					<Search
@@ -71,7 +78,9 @@ export function SearchClient({ recipes }: SearchClientProps) {
 						<p className="font-heading font-semibold text-foreground mb-1">
 							Encontre sua próxima receita
 						</p>
-						<p className="text-sm text-muted-foreground">Busque por nome, categoria ou tags</p>
+						<p className="text-sm text-muted-foreground">
+							Busque por nome, categoria ou tags
+						</p>
 					</div>
 				)}
 
@@ -83,7 +92,9 @@ export function SearchClient({ recipes }: SearchClientProps) {
 						<p className="font-heading font-semibold text-foreground mb-1">
 							Sem resultados para &ldquo;{query}&rdquo;
 						</p>
-						<p className="text-sm text-muted-foreground">Tente buscar com palavras diferentes</p>
+						<p className="text-sm text-muted-foreground">
+							Tente buscar com palavras diferentes
+						</p>
 					</div>
 				)}
 

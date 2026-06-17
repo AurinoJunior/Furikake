@@ -30,9 +30,6 @@ export function getRecipeBySlug(slug: string): Recipe | null {
 	return getAllRecipes().find((r) => r.slug === slug) ?? null;
 }
 
-export function getRecipesByCategory(categorySlug: string): Recipe[] {
-	return getAllRecipes().filter((r) => r.categorySlug === categorySlug);
-}
 
 export function getFeaturedRecipe(): Recipe | null {
 	return getAllRecipes().find((r) => r.featured) ?? null;
@@ -58,13 +55,3 @@ export function getCategories(): Category[] {
 	return Array.from(map.values());
 }
 
-export function searchRecipes(query: string): Recipe[] {
-	if (!query.trim()) return [];
-	const q = query.toLowerCase();
-	return getAllRecipes().filter(
-		(r) =>
-			r.title.toLowerCase().includes(q) ||
-			r.category.toLowerCase().includes(q) ||
-			r.tags.some((t) => t.toLowerCase().includes(q)),
-	);
-}
