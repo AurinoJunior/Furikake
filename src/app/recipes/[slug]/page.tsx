@@ -1,10 +1,10 @@
 import { ArrowLeft, Clock, Users } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChefNotes } from "@/components/recipe/ChefNotes";
 import { FavoriteButton } from "@/components/recipe/FavoriteButton";
 import { RecipeAbout } from "@/components/recipe/RecipeAbout";
+import { RecipeImage } from "@/components/recipe/RecipeImage";
 import { ShareButton } from "@/components/recipe/ShareButton";
 import { IngredientList } from "@/components/recipe/IngredientList";
 import { PreparationSteps } from "@/components/recipe/PreparationSteps";
@@ -28,14 +28,12 @@ export default async function RecipePage({ params }: Props) {
 		<div className="max-w-md mx-auto min-h-screen pb-12">
 			{/* Hero image */}
 			<div className="relative w-full h-80">
-				<Image
+				<RecipeImage
 					src={recipe.image}
 					alt={recipe.title}
-					fill
 					sizes="(max-width: 480px) 100vw, 480px"
 					className="object-cover"
 					priority
-					unoptimized
 				/>
 				<div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-transparent" />
 
