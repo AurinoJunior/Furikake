@@ -7,7 +7,7 @@ export default function FavoritesPage() {
 	const allRecipes = getAllRecipes();
 
 	return (
-		<div className="max-w-md mx-auto min-h-screen pb-20">
+		<div className="max-w-md mx-auto min-h-screen pb-28">
 			<PageHeader
 				title="Favoritos do"
 				titleHighlight="Chef"

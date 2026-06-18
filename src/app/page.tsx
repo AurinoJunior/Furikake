@@ -10,7 +10,7 @@ export default function HomePage() {
 	const allRecipes = getAllRecipes();
 
 	return (
-		<div className="max-w-md mx-auto min-h-screen pb-20">
+		<div className="max-w-md mx-auto min-h-screen pb-28">
 			<PageHeader
 				title="Olá,"
 				titleHighlight="Chef"

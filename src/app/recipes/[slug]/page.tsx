@@ -3,11 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChefNotes } from "@/components/recipe/ChefNotes";
 import { FavoriteButton } from "@/components/recipe/FavoriteButton";
+import { IngredientList } from "@/components/recipe/IngredientList";
+import { PreparationSteps } from "@/components/recipe/PreparationSteps";
 import { RecipeAbout } from "@/components/recipe/RecipeAbout";
 import { RecipeImage } from "@/components/recipe/RecipeImage";
 import { ShareButton } from "@/components/recipe/ShareButton";
-import { IngredientList } from "@/components/recipe/IngredientList";
-import { PreparationSteps } from "@/components/recipe/PreparationSteps";
 import { getAllRecipes, getRecipeBySlug } from "@/lib/recipes";
 
 interface Props {
@@ -26,7 +26,6 @@ export default async function RecipePage({ params }: Props) {
 
 	return (
 		<div className="max-w-md mx-auto min-h-screen pb-12">
-			{/* Hero image */}
 			<div className="relative w-full h-80">
 				<RecipeImage
 					src={recipe.image}
@@ -59,7 +58,6 @@ export default async function RecipePage({ params }: Props) {
 				)}
 			</div>
 
-			{/* Content sheet */}
 			<div className="relative z-10 -mt-8 rounded-t-[32px] bg-background">
 				<div className="px-6 pt-6 pb-2">
 					<h1 className="font-heading font-bold text-2xl text-foreground leading-tight mb-3">
@@ -83,7 +81,6 @@ export default async function RecipePage({ params }: Props) {
 							</>
 						)}
 					</div>
-
 				</div>
 
 				<div className="my-2 mx-6 h-px bg-border" />
