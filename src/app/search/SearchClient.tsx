@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useDeferredValue, useMemo, useState } from "react";
 import { SearchResultCard } from "@/components/recipe/SearchResultCard";
+import { SuggestionHeroCard } from "@/components/recipe/SuggestionHeroCard";
 import type { Recipe } from "@/types/recipe";
 
 interface SearchClientProps {
@@ -30,11 +31,15 @@ export function SearchClient({ recipes }: SearchClientProps) {
 		[recipes, deferred],
 	);
 
+	const hero = recipes.find((r) => r.featured) ?? recipes[0];
+	const suggestions = recipes.filter((r) => r.slug !== hero?.slug).slice(0, 2);
+
 	return (
 		<>
-			<div className="px-6 pt-8 pb-4">
-				<h1 className="font-heading font-bold text-2xl text-foreground mb-4">
-					Buscar
+			<div className="p-6">
+				<h1 className="font-nunito font-bold text-3xl text-foreground mb-4">
+					Buscar{" "}
+					<span className="px-2 bg-black text-white w-fit">Receitas</span>
 				</h1>
 
 				<div className="relative flex items-center">
@@ -43,7 +48,7 @@ export function SearchClient({ recipes }: SearchClientProps) {
 						className="absolute left-3.5 text-muted-foreground pointer-events-none"
 					/>
 					<input
-						type="search"
+						type="text"
 						placeholder="Receitas, categorias, tags..."
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
@@ -70,17 +75,13 @@ export function SearchClient({ recipes }: SearchClientProps) {
 					</p>
 				)}
 
-				{!query && (
-					<div className="flex flex-col items-center justify-center py-20 text-center">
-						<div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-4">
-							<Search size={24} className="text-muted-foreground" />
-						</div>
-						<p className="font-heading font-semibold text-foreground mb-1">
-							Encontre sua próxima receita
-						</p>
-						<p className="text-sm text-muted-foreground">
-							Busque por nome, categoria ou tags
-						</p>
+				{!query && hero && (
+					<div className="space-y-4">
+						<h2 className="text-muted-foreground">Sugestões do chef</h2>
+						<SuggestionHeroCard recipe={hero} />
+						{suggestions.map((recipe) => (
+							<SearchResultCard key={recipe.slug} recipe={recipe} />
+						))}
 					</div>
 				)}
 
