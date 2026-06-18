@@ -1,7 +1,7 @@
 "use client";
 
-import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface IngredientListProps {
 	ingredients: string[];
@@ -24,22 +24,26 @@ export function IngredientList({ ingredients }: IngredientListProps) {
 
 	return (
 		<section className="px-6 py-5">
-			<h2 className="font-heading font-bold text-lg text-foreground mb-4">Ingredientes</h2>
-			<ul className="space-y-3">
+			<h2 className="font-heading font-bold text-lg text-foreground mb-4">
+				Ingredientes
+			</h2>
+			<ul className="space-y-4">
 				{ingredients.map((ingredient, i) => (
 					<li
 						key={ingredient}
-						className="flex items-start gap-3 cursor-pointer"
+						className="flex items-center gap-3 cursor-pointer"
 						onClick={() => toggle(i)}
+						onKeyDown={() => toggle(i)}
 					>
 						<Checkbox
 							checked={checked.has(i)}
 							onCheckedChange={() => toggle(i)}
-							className="mt-0.5 flex-shrink-0"
 						/>
 						<span
-							className={`text-sm leading-snug transition-colors ${
-								checked.has(i) ? "text-muted-foreground line-through" : "text-foreground"
+							className={`leading-snug transition-colors ${
+								checked.has(i)
+									? "text-muted-foreground line-through"
+									: "text-foreground"
 							}`}
 						>
 							{ingredient}

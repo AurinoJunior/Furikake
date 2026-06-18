@@ -11,7 +11,7 @@ export default function FavoritesPage() {
 			<PageHeader
 				title="Favoritos do"
 				titleHighlight="Chef"
-				subtitle="Uma seleção das receitas favoritas do chef Aurino 👨🏾‍🍳"
+				subtitle="Uma seleção das suas receitas favoritas 👨🏾‍🍳"
 			/>
 			<FavoritesClient allRecipes={allRecipes} />
 			<BottomNavigation />
