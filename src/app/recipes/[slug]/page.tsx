@@ -1,12 +1,12 @@
+import { ArrowLeft, Clock, Users } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ChefNotes } from "@/components/recipe/ChefNotes";
 import { FavoriteButton } from "@/components/recipe/FavoriteButton";
 import { IngredientList } from "@/components/recipe/IngredientList";
 import { PreparationSteps } from "@/components/recipe/PreparationSteps";
 import { getAllRecipes, getRecipeBySlug } from "@/lib/recipes";
-import { ArrowLeft, Clock, Users } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 
 interface Props {
 	params: Promise<{ slug: string }>;
@@ -35,7 +35,7 @@ export default async function RecipePage({ params }: Props) {
 					priority
 					unoptimized
 				/>
-				<div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
+				<div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-transparent" />
 
 				{/* Back button */}
 				<Link
@@ -100,7 +100,9 @@ export default async function RecipePage({ params }: Props) {
 				)}
 
 				{/* Description */}
-				<p className="text-sm text-muted-foreground leading-relaxed">{recipe.description}</p>
+				<p className="text-sm text-muted-foreground leading-relaxed">
+					{recipe.description}
+				</p>
 			</div>
 
 			<div className="my-2 mx-6 h-px bg-border" />

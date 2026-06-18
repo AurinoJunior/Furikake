@@ -36,12 +36,7 @@ export function SearchClient({ recipes }: SearchClientProps) {
 
 	return (
 		<>
-			<div className="p-6">
-				<h1 className="font-nunito font-bold text-3xl text-foreground mb-4">
-					Buscar{" "}
-					<span className="px-2 bg-black text-white w-fit">Receitas</span>
-				</h1>
-
+			<div className="px-6 pb-4">
 				<div className="relative flex items-center">
 					<Search
 						size={16}

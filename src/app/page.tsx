@@ -1,4 +1,5 @@
 import { BottomNavigation } from "@/components/layout/BottomNavigation";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { CategoryRail } from "@/components/recipe/CategoryRail";
 import { RecommendationRecipeCard } from "@/components/recipe/RecommendationRecipeCard";
 import { getAllRecipes, getCategories, getFeaturedRecipe } from "@/lib/recipes";
@@ -10,20 +11,18 @@ export default function HomePage() {
 
 	return (
 		<div className="max-w-md mx-auto min-h-screen pb-20">
-			<header className="p-6 pb-0">
-				<h1 className="font-nunito font-black text-3xl text-foreground">
-					Olá, <span className="bg-black px-2 -ml-1 text-white">Chef</span>
-				</h1>
-				<p className="mt-1">O que vamos cozinhar hoje?</p>
-			</header>
+			<PageHeader
+				title="Olá,"
+				titleHighlight="Chef"
+				subtitle="O que vamos cozinhar hoje?"
+			/>
 
 			{featured && (
-				<section className="px-6 mt-4 mb-6">
+				<section className="px-6 mb-6">
 					<RecommendationRecipeCard recipe={featured} />
 				</section>
 			)}
 
-			{/* Category rails */}
 			{categories.map((cat) => {
 				const recipes = allRecipes.filter((r) => r.categorySlug === cat.slug);
 				return (
