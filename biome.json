@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!public/", "!src/app/globals.css"]
+		"includes": ["**", "!public/site.webmanifest", "!src/app/globals.css"]
 	},
 	"formatter": {
 		"enabled": true,
