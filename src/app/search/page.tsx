@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import { BottomNavigation } from "@/components/layout/BottomNavigation";
+import { NavBar } from "@/components/layout/NavBar";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { SearchClient } from "@/components/search/SearchClient";
 import { getAllRecipes } from "@/lib/recipes";
-import { SearchClient } from "./SearchClient";
 
 export default function SearchPage() {
 	const recipes = getAllRecipes();
@@ -12,7 +12,7 @@ export default function SearchPage() {
 			<Suspense>
 				<SearchClient recipes={recipes} />
 			</Suspense>
-			<BottomNavigation />
+			<NavBar />
 		</div>
 	);
 }

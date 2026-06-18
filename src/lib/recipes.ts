@@ -14,7 +14,9 @@ export function getAllRecipes(): Recipe[] {
 		const stat = fs.statSync(categoryPath);
 		if (!stat.isDirectory()) continue;
 
-		const files = fs.readdirSync(categoryPath).filter((f) => f.endsWith(".mdx"));
+		const files = fs
+			.readdirSync(categoryPath)
+			.filter((f) => f.endsWith(".mdx"));
 		for (const file of files) {
 			const filePath = path.join(categoryPath, file);
 			const source = fs.readFileSync(filePath, "utf-8");
@@ -29,7 +31,6 @@ export function getAllRecipes(): Recipe[] {
 export function getRecipeBySlug(slug: string): Recipe | null {
 	return getAllRecipes().find((r) => r.slug === slug) ?? null;
 }
-
 
 export function getFeaturedRecipe(): Recipe | null {
 	return getAllRecipes().find((r) => r.featured) ?? null;
@@ -54,4 +55,3 @@ export function getCategories(): Category[] {
 
 	return Array.from(map.values());
 }
-

@@ -1,7 +1,7 @@
-import { BottomNavigation } from "@/components/layout/BottomNavigation";
+import { FavoritesClient } from "@/components/favorites/FavoritesClient";
+import { NavBar } from "@/components/layout/NavBar";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { getAllRecipes } from "@/lib/recipes";
-import { FavoritesClient } from "./FavoritesClient";
 
 export default function FavoritesPage() {
 	const allRecipes = getAllRecipes();
@@ -14,7 +14,7 @@ export default function FavoritesPage() {
 				subtitle="Uma seleção das suas receitas favoritas 👨🏾‍🍳"
 			/>
 			<FavoritesClient allRecipes={allRecipes} />
-			<BottomNavigation />
+			<NavBar />
 		</div>
 	);
 }

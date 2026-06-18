@@ -10,7 +10,7 @@ const items = [
 	{ href: "/favorites", icon: Star, label: "Favoritos" },
 ];
 
-export function BottomNavigation() {
+export function NavBar() {
 	const pathname = usePathname();
 
 	return (

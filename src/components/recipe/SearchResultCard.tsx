@@ -1,6 +1,6 @@
-import type { Recipe } from "@/types/recipe";
 import Link from "next/link";
 import { RecipeImage } from "@/components/recipe/RecipeImage";
+import type { Recipe } from "@/types/recipe";
 
 interface SearchResultCardProps {
 	recipe: Recipe;
@@ -10,9 +10,9 @@ export function SearchResultCard({ recipe }: SearchResultCardProps) {
 	return (
 		<Link
 			href={`/recipes/${recipe.slug}`}
-			className="flex h-[120px] rounded-[20px] overflow-hidden bg-white shadow-[0_4px_4px_rgba(0,0,0,0.10)] group"
+			className="flex h-30 rounded-[20px] overflow-hidden bg-white shadow-[0_4px_4px_rgba(0,0,0,0.10)] group"
 		>
-			<div className="relative w-[134px] flex-shrink-0">
+			<div className="relative w-33.5 shrink-0">
 				<RecipeImage
 					src={recipe.image}
 					alt={recipe.title}
@@ -29,7 +29,9 @@ export function SearchResultCard({ recipe }: SearchResultCardProps) {
 						{recipe.title}
 					</h3>
 				</div>
-				<p className="text-xs font-semibold text-muted-foreground">{recipe.time}</p>
+				<p className="text-xs font-semibold text-muted-foreground">
+					{recipe.time}
+				</p>
 			</div>
 		</Link>
 	);

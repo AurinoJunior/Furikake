@@ -1,6 +1,6 @@
-import { BottomNavigation } from "@/components/layout/BottomNavigation";
+import { NavBar } from "@/components/layout/NavBar";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { CategoryRail } from "@/components/recipe/CategoryRail";
+import { CategoryList } from "@/components/recipe/CategoryList";
 import { RecommendationRecipeCard } from "@/components/recipe/RecommendationRecipeCard";
 import { getAllRecipes, getCategories, getFeaturedRecipe } from "@/lib/recipes";
 
@@ -23,19 +23,9 @@ export default function HomePage() {
 				</section>
 			)}
 
-			{categories.map((cat) => {
-				const recipes = allRecipes.filter((r) => r.categorySlug === cat.slug);
-				return (
-					<CategoryRail
-						key={cat.slug}
-						title={cat.name}
-						categorySlug={cat.slug}
-						recipes={recipes}
-					/>
-				);
-			})}
+			<CategoryList categories={categories} allRecipes={allRecipes} />
 
-			<BottomNavigation />
+			<NavBar />
 		</div>
 	);
 }
