@@ -1,7 +1,6 @@
 import type { Recipe } from "@/types/recipe";
-import { Clock, Users } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { RecipeImage } from "@/components/recipe/RecipeImage";
 
 interface SearchResultCardProps {
 	recipe: Recipe;
@@ -9,32 +8,28 @@ interface SearchResultCardProps {
 
 export function SearchResultCard({ recipe }: SearchResultCardProps) {
 	return (
-		<Link href={`/recipes/${recipe.slug}`} className="flex gap-3 group">
-			<div className="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
-				<Image
+		<Link
+			href={`/recipes/${recipe.slug}`}
+			className="flex h-[120px] rounded-[20px] overflow-hidden bg-white shadow-[0_4px_4px_rgba(0,0,0,0.10)] group"
+		>
+			<div className="relative w-[134px] flex-shrink-0">
+				<RecipeImage
 					src={recipe.image}
 					alt={recipe.title}
-					fill
-					sizes="80px"
+					sizes="134px"
 					className="object-cover transition-transform duration-300 group-hover:scale-105"
-					unoptimized
 				/>
 			</div>
-			<div className="flex-1 min-w-0 py-0.5">
-				<span className="text-xs text-brand font-medium mb-0.5 block">{recipe.category}</span>
-				<h3 className="font-heading font-semibold text-sm text-foreground leading-snug line-clamp-2 mb-1.5">
-					{recipe.title}
-				</h3>
-				<div className="flex items-center gap-3 text-muted-foreground">
-					<span className="flex items-center gap-1 text-xs">
-						<Clock size={11} />
-						{recipe.time}
-					</span>
-					<span className="flex items-center gap-1 text-xs">
-						<Users size={11} />
-						{recipe.servings} {recipe.servings === 1 ? "pessoa" : "pessoas"}
-					</span>
+			<div className="flex-1 flex flex-col justify-between p-5 min-w-0">
+				<div>
+					<p className="text-xs text-muted-foreground uppercase mb-2">
+						{recipe.category}
+					</p>
+					<h3 className="text-base text-foreground leading-tight line-clamp-2">
+						{recipe.title}
+					</h3>
 				</div>
+				<p className="text-xs font-semibold text-muted-foreground">{recipe.time}</p>
 			</div>
 		</Link>
 	);

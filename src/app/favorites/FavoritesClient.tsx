@@ -1,10 +1,10 @@
 "use client";
 
-import { useFavoritesStore } from "@/store/favorites";
-import type { Recipe } from "@/types/recipe";
 import { Clock, Heart, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useFavoritesStore } from "@/store/favorites";
+import type { Recipe } from "@/types/recipe";
 
 interface FavoritesClientProps {
 	allRecipes: Recipe[];
@@ -12,7 +12,9 @@ interface FavoritesClientProps {
 
 export function FavoritesClient({ allRecipes }: FavoritesClientProps) {
 	const { favoriteRecipeSlugs } = useFavoritesStore();
-	const favorites = allRecipes.filter((r) => favoriteRecipeSlugs.includes(r.slug));
+	const favorites = allRecipes.filter((r) =>
+		favoriteRecipeSlugs.includes(r.slug),
+	);
 
 	if (favorites.length === 0) {
 		return (
@@ -31,7 +33,7 @@ export function FavoritesClient({ allRecipes }: FavoritesClientProps) {
 	}
 
 	return (
-		<ul className="px-6 space-y-6">
+		<ul className="px-6 space-y-8">
 			{favorites.map((recipe) => (
 				<li key={recipe.slug}>
 					<Link href={`/recipes/${recipe.slug}`} className="block group">

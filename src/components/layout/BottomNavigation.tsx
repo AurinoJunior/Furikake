@@ -1,13 +1,13 @@
 "use client";
 
-import { Heart, Home, Search } from "lucide-react";
+import { Home, Search, Star } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const items = [
-	{ href: "/", icon: Home, label: "Início" },
-	{ href: "/search", icon: Search, label: "Busca" },
-	{ href: "/favorites", icon: Heart, label: "Favoritos" },
+	{ href: "/", icon: Home, label: "Home" },
+	{ href: "/search", icon: Search, label: "Buscar" },
+	{ href: "/favorites", icon: Star, label: "Favoritos" },
 ];
 
 export function BottomNavigation() {
@@ -16,12 +16,8 @@ export function BottomNavigation() {
 	return (
 		<div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
 			<nav
-				className="flex items-center justify-between gap-[86px] px-1.5 py-3 rounded-[45px] backdrop-blur-md"
-				style={{
-					width: 257,
-					background: "oklch(1 0 0 / 70%)",
-					boxShadow: "0 4px 24px oklch(0 0 0 / 10%)",
-				}}
+				className="flex items-center justify-between px-1 py-1 rounded-[45px] backdrop-blur-sm border"
+				style={{ width: 257, background: "rgba(255,255,255,0.7)" }}
 			>
 				{items.map(({ href, icon: Icon, label }) => {
 					const active = pathname === href;
@@ -29,12 +25,14 @@ export function BottomNavigation() {
 						<Link
 							key={href}
 							href={href}
-							aria-label={label}
-							className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors ${
-								active ? "text-brand" : "text-muted-foreground"
+							className={`flex flex-col items-center justify-center w-18.75 h-10 rounded-[20px] px-2 py-1 gap-0.5 transition-colors ${
+								active ? "bg-[#1c1c1c] text-white" : "text-[#1c1c1c]"
 							}`}
 						>
-							<Icon size={22} strokeWidth={active ? 2.5 : 1.8} />
+							<Icon size={20} />
+							{!active && (
+								<span className="text-xs leading-none mt-0.5">{label}</span>
+							)}
 						</Link>
 					);
 				})}

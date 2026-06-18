@@ -9,8 +9,9 @@ export default function FavoritesPage() {
 	return (
 		<div className="max-w-md mx-auto min-h-screen pb-28">
 			<PageHeader
-				title="Favoritos do Chef 👨🏾‍🍳"
-				subtitle="Uma seleção das suas receitas favoritas"
+				title="Favoritos do"
+				titleHighlight="Chef"
+				subtitle="Uma seleção das suas receitas favoritas 👨🏾‍🍳"
 			/>
 			<FavoritesClient allRecipes={allRecipes} />
 			<BottomNavigation />

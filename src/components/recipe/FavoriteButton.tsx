@@ -1,7 +1,7 @@
 "use client";
 
-import { useFavoritesStore } from "@/store/favorites";
 import { Heart } from "lucide-react";
+import { useFavoritesStore } from "@/store/favorites";
 
 interface FavoriteButtonProps {
 	slug: string;
@@ -23,12 +23,12 @@ export function FavoriteButton({ slug, size = "md" }: FavoriteButtonProps) {
 				toggleFavorite(slug);
 			}}
 			aria-label={active ? "Remover dos favoritos" : "Adicionar aos favoritos"}
-			className={`flex items-center justify-center rounded-full transition-all ${
+			className={`flex items-center justify-center rounded-full transition-all cursor-pointer ${
 				size === "sm" ? "w-8 h-8" : "w-10 h-10"
 			} ${
 				active
 					? "bg-brand text-brand-foreground"
-					: "bg-background/80 backdrop-blur-sm text-muted-foreground hover:text-brand"
+					: "bg-black/30 backdrop-blur-sm text-white"
 			}`}
 		>
 			<Heart
