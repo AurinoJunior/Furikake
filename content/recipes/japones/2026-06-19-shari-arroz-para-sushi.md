@@ -1,0 +1,49 @@
+---
+title: Shari - Arroz para Sushi
+slug: shari-arroz-para-sushi
+description: Shari é a alma do sushi. Antes de pensar no peixe, no rolo ou no
+  molho, é o arroz que define se o resultado será mediano ou memorável. Essa
+  receita traz a técnica tradicional japonesa adaptada para o cozinheiro de
+  casa.
+category: Japonês
+time: 45 min
+difficulty: Médio
+servings: 2
+image: /images/recipes/photo-1689039234540-d335a43ca28a.avif
+tags:
+  - japones
+  - classico
+ingredients:
+  - 2 xícaras de arroz de grão curto
+  - 2 xícaras de água (proporção 1:1)
+  - ¼ de xícara de vinagre de arroz
+  - 2 colheres de sopa de açúcar refinado
+  - 1 colher de chá de sal
+  - "Opcional: 1 pedaço de alga kombu"
+  - "Opcional: 1 colher de sopa de sake mirin"
+steps:
+  - Lavar o arroz repetidamente até a água ficar translúcida, indicando que o
+    excesso de amido foi removido.
+  - Deixar o arroz descansar em uma peneira por 15 minutos.
+  - Cozinhar o arroz na panela elétrica usando apenas água, na proporção de 1
+    xícara de arroz para 1 xícara de água.
+  - Ao finalizar o cozimento, deixar o arroz descansar por mais 15 minutos
+    dentro da panela tampada.
+  - "Preparar o tempero: misturar o vinagre de arroz, o açúcar e o sal (e o
+    mirin, se usar) em uma panela pequena em fogo baixo, mexendo até dissolver
+    completamente. Não deixar ferver."
+  - Transferir o arroz para um recipiente grande. Regar com o tempero morno
+    enquanto mistura delicadamente com movimentos de corte.
+  - Ao mesmo tempo em que mistura, resfriar o arroz abanando com uma tampa
+    grande para encapsular os grãos, dar brilho e a textura característica do
+    shari.
+chefNotes:
+  - A proporção de água é sempre 1:1 — diferente do arroz comum. Essa é a chave
+    para a textura certa.
+  - O tempero não pode ferver, senão o vinagre perde o aroma e o sabor fica
+    agressivo.
+  - O movimento de abano enquanto mistura não é só técnica — é o que dá o brilho
+    característico ao shari.
+  - Adicionar um pedaço de kombu à água do cozimento acrescenta umami sutil à
+    base.
+---
