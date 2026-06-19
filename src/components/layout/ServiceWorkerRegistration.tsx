@@ -9,6 +9,8 @@ export function ServiceWorkerRegistration() {
 		if (!("serviceWorker" in navigator)) return;
 
 		navigator.serviceWorker.register("/sw.js", { scope: "/" }).then((reg) => {
+			reg.update();
+
 			if (reg.waiting) {
 				setWaitingSW(reg.waiting);
 			}
@@ -25,6 +27,14 @@ export function ServiceWorkerRegistration() {
 						setWaitingSW(newSW);
 					}
 				});
+
+				// catch race condition where statechange fired before listener attached
+				if (
+					newSW.state === "installed" &&
+					navigator.serviceWorker.controller
+				) {
+					setWaitingSW(newSW);
+				}
 			});
 		});
 	}, []);
