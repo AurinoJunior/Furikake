@@ -41,11 +41,6 @@ content:
         label: Image
         type: image
 
-      - name: tags
-        label: Tags
-        type: string
-        list: true
-
       - name: ingredients
         label: Ingredients
         type: string
