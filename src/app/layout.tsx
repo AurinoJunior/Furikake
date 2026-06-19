@@ -14,10 +14,14 @@ const nunito = Nunito({
 	weight: ["400", "600", "700", "800"],
 });
 
+const metadataBaseUrl =
+	process.env.NEXT_PUBLIC_SITE_URL ||
+	(process.env.VERCEL_URL
+		? `https://${process.env.VERCEL_URL}`
+		: "http://localhost:3000");
+
 export const metadata: Metadata = {
-	metadataBase: new URL(
-		process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-	),
+	metadataBase: metadataBaseUrl,
 	title: "Furikake",
 	description: "Livro de receitas digital pessoal",
 	icons: {
