@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChefNotes } from "@/components/recipe/ChefNotes";
 import { IngredientList } from "@/components/recipe/IngredientList";
@@ -13,6 +14,23 @@ interface Props {
 
 export async function generateStaticParams() {
 	return getAllRecipes().map((r) => ({ slug: r.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { slug } = await params;
+	const recipe = getRecipeBySlug(slug);
+
+	if (!recipe) return {};
+
+	return {
+		title: recipe.title,
+		description: recipe.description,
+		openGraph: {
+			title: recipe.title,
+			description: recipe.description,
+			images: [recipe.image],
+		},
+	};
 }
 
 export default async function RecipePage({ params }: Props) {
