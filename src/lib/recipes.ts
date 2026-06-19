@@ -5,27 +5,30 @@ import type { Category, Recipe } from "@/types/recipe";
 
 const contentDir = path.join(process.cwd(), "content/recipes");
 
+function toSlug(text: string): string {
+	return text
+		.normalize("NFD")
+		.replace(/[̀-ͯ]/g, "")
+		.toLowerCase()
+		.replace(/\s+/g, "-");
+}
+
 export function getAllRecipes(): Recipe[] {
-	const recipes: Recipe[] = [];
+	const files = fs.readdirSync(contentDir).filter((f) => f.endsWith(".md"));
 
-	const categories = fs.readdirSync(contentDir);
-	for (const category of categories) {
-		const categoryPath = path.join(contentDir, category);
-		const stat = fs.statSync(categoryPath);
-		if (!stat.isDirectory()) continue;
+	return files.map((file) => {
+		const source = fs.readFileSync(path.join(contentDir, file), "utf-8");
+		const { data, content } = matter(source);
+		const raw = data as Recipe;
 
-		const files = fs
-			.readdirSync(categoryPath)
-			.filter((f) => f.endsWith(".mdx"));
-		for (const file of files) {
-			const filePath = path.join(categoryPath, file);
-			const source = fs.readFileSync(filePath, "utf-8");
-			const { data, content } = matter(source);
-			recipes.push({ ...(data as Recipe), content });
-		}
-	}
-
-	return recipes;
+		return {
+			...raw,
+			content,
+			categorySlug: toSlug(raw.category),
+			featured: raw.featured ?? false,
+			chefNotes: raw.chefNotes ?? [],
+		};
+	});
 }
 
 export function getRecipeBySlug(slug: string): Recipe | null {

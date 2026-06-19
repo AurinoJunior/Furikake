@@ -58,7 +58,13 @@ export default async function RecipePage({ params }: Props) {
 
 				<div className="my-2 mx-6 h-px bg-border" />
 
-				<RecipeAbout description={recipe.description} tags={recipe.tags} />
+				<RecipeAbout
+					description={recipe.description}
+					category={recipe.category}
+					time={recipe.time}
+					difficulty={recipe.difficulty}
+					servings={recipe.servings}
+				/>
 
 				<div className="my-2 mx-6 h-px bg-border" />
 

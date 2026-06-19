@@ -10,9 +10,6 @@ time: 45 min
 difficulty: Médio
 servings: 2
 image: /images/recipes/photo-1689039234540-d335a43ca28a.avif
-tags:
-  - japones
-  - classico
 ingredients:
   - 2 xícaras de arroz de grão curto
   - 2 xícaras de água (proporção 1:1)

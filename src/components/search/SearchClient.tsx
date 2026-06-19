@@ -18,7 +18,7 @@ function filterRecipes(recipes: Recipe[], query: string): Recipe[] {
 		(r) =>
 			r.title.toLowerCase().includes(q) ||
 			r.category.toLowerCase().includes(q) ||
-			r.tags.some((t) => t.toLowerCase().includes(q)),
+			r.categorySlug.includes(q),
 	);
 }
 
@@ -47,7 +47,7 @@ export function SearchClient({ recipes }: SearchClientProps) {
 						placeholder="Receitas, categorias, tags..."
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
-						className="w-full h-11 pl-10 pr-10 rounded-xl bg-secondary text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-brand/30 transition-all"
+						className="w-full h-11 pl-10 pr-10 rounded-xl bg-secondary text-base text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-brand/30 transition-all"
 					/>
 					{query && (
 						<button

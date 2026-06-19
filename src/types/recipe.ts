@@ -9,7 +9,6 @@ export interface Recipe {
 	difficulty?: string;
 	image: string;
 	featured: boolean;
-	tags: string[];
 	ingredients: string[];
 	steps: string[];
 	chefNotes: string[];

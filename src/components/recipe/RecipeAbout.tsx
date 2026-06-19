@@ -1,22 +1,35 @@
 "use client";
 
-import { ChevronDown, ChevronUp, Tag } from "lucide-react";
+import { ChefHat, ChevronDown, ChevronUp, Clock, Tag, Users } from "lucide-react";
 import { useState } from "react";
-import { TAG_CONFIG } from "@/consts/tagConfig";
-
-function formatTagLabel(tag: string): string {
-	return tag.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
-}
 
 interface RecipeAboutProps {
 	description: string;
-	tags: string[];
+	category: string;
+	time: string;
+	difficulty?: string;
+	servings: number;
 }
 
-export function RecipeAbout({ description, tags }: RecipeAboutProps) {
+export function RecipeAbout({
+	description,
+	category,
+	time,
+	difficulty,
+	servings,
+}: RecipeAboutProps) {
 	const [open, setOpen] = useState(true);
 
-	const knownTags = tags.filter((t) => TAG_CONFIG[t]);
+	const items = [
+		{ icon: Tag, label: "Categoria", value: category },
+		{ icon: Clock, label: "Tempo de preparo", value: time },
+		...(difficulty ? [{ icon: ChefHat, label: "Dificuldade", value: difficulty }] : []),
+		{
+			icon: Users,
+			label: "Rendimento",
+			value: `${servings} ${servings === 1 ? "Pessoa" : "Pessoas"}`,
+		},
+	];
 
 	return (
 		<div className="px-6 py-4">
@@ -41,44 +54,19 @@ export function RecipeAbout({ description, tags }: RecipeAboutProps) {
 						{description}
 					</p>
 
-					{knownTags.length > 0 && (
-						<ul className="space-y-4">
-							{knownTags.map((tag) => {
-								const config = TAG_CONFIG[tag];
-								const Icon = config.icon;
-								return (
-									<li key={tag} className="flex items-start gap-2">
-										<div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0">
-											<Icon size={16} className="text-foreground" />
-										</div>
-										<div>
-											<p className="text-sm font-semibold text-foreground">
-												{config.label}
-											</p>
-											<p className="text-xs text-muted-foreground">
-												{config.description}
-											</p>
-										</div>
-									</li>
-								);
-							})}
-						</ul>
-					)}
-
-					{tags
-						.filter((t) => !TAG_CONFIG[t])
-						.map((tag) => (
-							<li key={tag} className="flex items-start gap-3 list-none">
-								<div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0">
-									<Tag size={16} className="text-foreground" />
+					<ul className="space-y-4">
+						{items.map(({ icon: Icon, label, value }) => (
+							<li key={label} className="flex items-start gap-2">
+								<div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0">
+									<Icon size={16} className="text-foreground" />
 								</div>
-								<div className="flex items-center h-9">
-									<p className="text-sm font-semibold text-foreground">
-										{formatTagLabel(tag)}
-									</p>
+								<div>
+									<p className="text-sm font-semibold text-foreground">{label}</p>
+									<p className="text-xs text-muted-foreground">{value}</p>
 								</div>
 							</li>
 						))}
+					</ul>
 				</div>
 			)}
 		</div>
