@@ -33,7 +33,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt-BR" className={`${inter.variable} ${nunito.variable} h-full antialiased`}>
+		<html
+			lang="pt-BR"
+			className={`${inter.variable} ${nunito.variable} h-full antialiased`}
+		>
 			<body className="min-h-full bg-background">{children}</body>
 		</html>
 	);

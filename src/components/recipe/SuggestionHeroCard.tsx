@@ -1,6 +1,6 @@
 import Link from "next/link";
-import type { Recipe } from "@/types/recipe";
 import { RecipeImage } from "@/components/recipe/RecipeImage";
+import type { Recipe } from "@/types/recipe";
 
 interface SuggestionHeroCardProps {
 	recipe: Recipe;

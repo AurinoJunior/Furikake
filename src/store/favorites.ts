@@ -21,15 +21,15 @@ export const useFavoritesStore = create<FavoritesStore>()(
 				})),
 			removeFavorite: (slug) =>
 				set((state) => ({
-					favoriteRecipeSlugs: state.favoriteRecipeSlugs.filter((s) => s !== slug),
+					favoriteRecipeSlugs: state.favoriteRecipeSlugs.filter(
+						(s) => s !== slug,
+					),
 				})),
 			isFavorite: (slug) => get().favoriteRecipeSlugs.includes(slug),
 			toggleFavorite: (slug) => {
-				if (get().isFavorite(slug)) {
-					get().removeFavorite(slug);
-				} else {
-					get().addFavorite(slug);
-				}
+				const { isFavorite, addFavorite, removeFavorite } = get();
+				if (isFavorite(slug)) return removeFavorite(slug);
+				addFavorite(slug);
 			},
 		}),
 		{ name: "furikake-favorites" },

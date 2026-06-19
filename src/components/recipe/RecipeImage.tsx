@@ -13,7 +13,13 @@ interface RecipeImageProps {
 	className?: string;
 }
 
-export function RecipeImage({ src, alt, sizes, priority, className }: RecipeImageProps) {
+export function RecipeImage({
+	src,
+	alt,
+	sizes,
+	priority,
+	className,
+}: RecipeImageProps) {
 	const [imgSrc, setImgSrc] = useState(src);
 
 	return (
