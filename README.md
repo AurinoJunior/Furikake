@@ -2,7 +2,8 @@
 
 Livro de receitas digital pessoal. Organiza receitas por categoria, permite busca por nome, ingredientes e tags, e salva favoritos localmente.
 
-<!-- gif do projeto aqui -->
+<img width="400" height="854" alt="ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/485bbb0f-dfaf-4190-85ed-4578424a80de" />
+
 
 ## Tecnologias
 
