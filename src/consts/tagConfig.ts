@@ -195,4 +195,9 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 		label: "Americano",
 		description: "Inspirada na culinária americana.",
 	},
+	japonês: {
+		icon: Globe,
+		label: "Japonês",
+		description: "Técnicas e sabores da culinária japonesa.",
+	},
 };
