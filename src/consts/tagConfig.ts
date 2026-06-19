@@ -24,7 +24,7 @@ export interface TagConfig {
 
 export const TAG_CONFIG: Record<string, TagConfig> = {
 	// -- Tempo de preparo --
-	rápido: {
+	rapido: {
 		icon: Zap,
 		label: "Preparo Rápido",
 		description: "Fica pronta em menos de 30 minutos.",
@@ -87,7 +87,7 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 	},
 
 	// -- Ingrediente destaque --
-	café: {
+	cafe: {
 		icon: Coffee,
 		label: "Café",
 		description: "Com sabor marcante de café.",
@@ -102,7 +102,7 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 		label: "Frutas",
 		description: "Com frutas frescas da estação.",
 	},
-	limão: {
+	limao: {
 		icon: Zap,
 		label: "Limão",
 		description: "Com toque cítrico de limão.",
@@ -163,7 +163,7 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 		label: "Premium",
 		description: "Ingredientes selecionados de alta qualidade.",
 	},
-	clássico: {
+	classico: {
 		icon: Star,
 		label: "Clássico",
 		description: "Uma receita clássica e atemporal.",
@@ -180,7 +180,7 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 		label: "Italiano",
 		description: "Inspirada na culinária italiana.",
 	},
-	árabe: {
+	arabe: {
 		icon: Globe,
 		label: "Árabe",
 		description: "Sabores do Oriente Médio.",
@@ -195,7 +195,7 @@ export const TAG_CONFIG: Record<string, TagConfig> = {
 		label: "Americano",
 		description: "Inspirada na culinária americana.",
 	},
-	japonês: {
+	japones: {
 		icon: Globe,
 		label: "Japonês",
 		description: "Técnicas e sabores da culinária japonesa.",
