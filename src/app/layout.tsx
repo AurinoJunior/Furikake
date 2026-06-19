@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Nunito } from "next/font/google";
+import { ServiceWorkerRegistration } from "@/components/layout/ServiceWorkerRegistration";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
 		],
 		apple: "/apple-touch-icon.png",
 	},
-	manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -40,7 +40,10 @@ export default function RootLayout({
 			lang="pt-BR"
 			className={`${inter.variable} ${nunito.variable} h-full antialiased`}
 		>
-			<body className="min-h-full bg-background">{children}</body>
+			<body className="min-h-full bg-background">
+				<ServiceWorkerRegistration />
+				{children}
+			</body>
 		</html>
 	);
 }
