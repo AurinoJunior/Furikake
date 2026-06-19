@@ -1,0 +1,54 @@
+media:
+  input: public/images/recipes
+  output: /images/recipes
+
+content:
+  - name: recipes
+    label: Recipes
+    path: content/recipes
+    type: collection
+
+    fields:
+      - name: title
+        label: Title
+        type: string
+
+      - name: description
+        label: Description
+        type: string
+
+      - name: category
+        label: Category
+        type: string
+
+      - name: time
+        label: Time
+        type: string
+
+      - name: servings
+        label: Servings
+        type: number
+
+      - name: image
+        label: Image
+        type: image
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+      - name: ingredients
+        label: Ingredients
+        type: string
+        list: true
+
+      - name: steps
+        label: Steps
+        type: string
+        list: true
+
+      - name: chefNotes
+        label: Chef Notes
+        type: string
+        list: true
