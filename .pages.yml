@@ -24,6 +24,10 @@ content:
       - name: time
         label: Time
         type: string
+        
+      - name: difficulty
+        label: Difficulty
+        type: string
 
       - name: servings
         label: Servings
